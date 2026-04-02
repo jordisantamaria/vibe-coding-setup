@@ -10,7 +10,7 @@ Config lives at `~/.config/nvim/`.
 
 ## Framework
 
-**LazyVim** as base framework with no extras enabled. All plugins are manually configured in `lua/plugins/`.
+**LazyVim** as base framework. Extras enabled: `lang.vue`, `lang.typescript`. Custom plugins in `lua/plugins/`.
 
 ## Config structure
 
@@ -30,6 +30,7 @@ Config lives at `~/.config/nvim/`.
       navigation.lua        # vim-tmux-navigator
       git.lua               # Fugitive, rhubarb, gitsigns, git-messenger
       csv.lua               # CSV/table editing
+      picker.lua            # Snacks picker (Tab/S-Tab override)
       which-key.lua         # Keybinding hints
 ```
 
@@ -184,12 +185,33 @@ Leader key: `Space`
 | `Alt+l` | Normal | Increase width |
 | `Ctrl+H/J/K/L` | Normal | Navigate panes (tmux-aware) |
 
-### Diagnostics
+### LSP
 
 | Keybind | Mode | Action |
 |---|---|---|
+| `K` | Normal | Hover info (type, signature) |
+| `Space ca` | Normal | Code action (fix errors) |
+| `gd` | Normal | Go to definition |
 | `Ctrl+P` | Normal | Previous diagnostic |
 | `Ctrl+N` | Normal | Next diagnostic |
+
+### Picker (snacks.nvim)
+
+| Keybind | Mode | Action |
+|---|---|---|
+| `Space /` | Normal | Grep (search text in project) |
+| `Space .` | Normal | Recent files |
+| `Space sk` | Normal | Search keybindings |
+| `Tab` | Picker | Next result |
+| `Shift+Tab` | Picker | Previous result |
+
+### Scratch buffers
+
+| Keybind | Mode | Action |
+|---|---|---|
+| `Space S` | Normal | Select scratch buffer |
+
+Scratch buffers are persistent notes stored in `~/.local/state/nvim/scratch/`. Useful for quick code snippets or notes outside your project.
 
 ### Quickfix
 
